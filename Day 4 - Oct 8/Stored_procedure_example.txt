@@ -1,0 +1,24 @@
+CREATE OR REPLACE PROCEDURE get_all_customer_orders(
+INOUT RES_CURSOR REFCURSOR Default 'cust_orders'
+)
+LANGUAGE plpgsql
+as $$
+BEGIN 
+	OPEN RES_CURSOR FOR
+	SELECT c.cust_id, c.cust_name,
+	count(distinct o.order_id) as total_orders,SUM(oi.quantity) as total_items,
+	SUM(oi.quantity * p.price) as total_amt
+	from customers c 
+	JOIN orders o on c.cust_id = o.cust_id
+	JOIN order_items oi on oi.order_id = o.order_id
+	JOIN products p on oi.product_id = p.prod_id
+	group by c.cust_id,c.cust_name
+	order by c.cust_id;
+END;
+$$;
+
+BEGIN;
+CALL get_all_customer_orders();
+FETCH ALL FROM cust_orders;
+COMMIT;
+

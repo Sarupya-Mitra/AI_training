@@ -1,0 +1,233 @@
+[{
+"id": "HB001",
+"guest_name": "Arjun Sethi",
+"city": "Hyderabad",
+"hotel_name": "Grand Meridian",
+"room_type": "Deluxe",
+"nights": 3,
+"room_rate": 5200,
+"booking_amount": 15600,
+"booking_status": "Confirmed",
+"rating": 4.5
+},
+
+{
+"id": "HB002",
+"guest_name": "Mira Kulkarni",
+"city": "Hyderabad",
+"hotel_name": "Lakeview Residency",
+"room_type": "Standard",
+"nights": 2,
+"room_rate": 3200,
+"booking_amount": 6400,
+"booking_status": "Completed",
+"rating": 4.1
+},
+
+{
+"id": "HB003",
+"guest_name": "Faizan Mir",
+"city": "Bengaluru",
+"hotel_name": "Tech Park Suites",
+"room_type": "Executive",
+"nights": 4,
+"room_rate": 6800,
+"booking_amount": 27200,
+"booking_status": "Confirmed",
+"rating": 4.7
+},
+
+{
+"id": "HB004",
+"guest_name": "Nisha Balan",
+"city": "Bengaluru",
+"hotel_name": "Urban Nest",
+"room_type": "Standard",
+"nights": 1,
+"room_rate": 3500,
+"booking_amount": 3500,
+"booking_status": "Cancelled",
+"rating": 3.9
+},
+
+{
+"id": "HB005",
+"guest_name": "Ritesh Mehra",
+"city": "Chennai",
+"hotel_name": "Marina Crown",
+"room_type": "Suite",
+"nights": 3,
+"room_rate": 9000,
+"booking_amount": 27000,
+"booking_status": "Completed",
+"rating": 4.8
+},
+
+{
+"id": "HB006",
+"guest_name": "Tara Nair",
+"city": "Chennai",
+"hotel_name": "Bay Comfort",
+"room_type": "Deluxe",
+"nights": 2,
+"room_rate": 4800,
+"booking_amount": 9600,
+"booking_status": "Confirmed",
+"rating": 4.2
+},
+
+{
+"id": "HB007",
+"guest_name": "Kabir Oberoi",
+"city": "Pune",
+"hotel_name": "Central Park Inn",
+"room_type": "Executive",
+"nights": 5,
+"room_rate": 6500,
+"booking_amount": 32500,
+"booking_status": "Completed",
+"rating": 4.6
+},
+
+{
+"id": "HB008",
+"guest_name": "Sneha Joshi",
+"city": "Pune",
+"hotel_name": "Green Leaf Hotel",
+"room_type": "Standard",
+"nights": 3,
+"room_rate": 3000,
+"booking_amount": 9000,
+"booking_status": "Confirmed",
+"rating": 4.0
+},
+
+{
+"id": "HB009",
+"guest_name": "Yusuf Merchant",
+"city": "Mumbai",
+"hotel_name": "Sea Crest",
+"room_type": "Suite",
+"nights": 4,
+"room_rate": 10500,
+"booking_amount": 42000,
+"booking_status": "Confirmed",
+"rating": 4.9
+},
+
+{
+"id": "HB010",
+"guest_name": "Divya Menon",
+"city": "Mumbai",
+"hotel_name": "Metro Grand",
+"room_type": "Deluxe",
+"nights": 2,
+"room_rate": 5500,
+"booking_amount": 11000,
+"booking_status": "Completed",
+"rating": 4.3
+},
+
+{
+"id": "HB011",
+"guest_name": "Aman Verma",
+"city": "Delhi",
+"hotel_name": "Capital Palace",
+"room_type": "Executive",
+"nights": 3,
+"room_rate": 7200,
+"booking_amount": 21600,
+"booking_status": "Confirmed",
+"rating": 4.4
+},
+
+{
+"id": "HB012",
+"guest_name": "Leena Francis",
+"city": "Delhi",
+"hotel_name": "North Gate Hotel",
+"room_type": "Standard",
+"nights": 2,
+"room_rate": 3400,
+"booking_amount": 6800,
+"booking_status": "Cancelled",
+"rating": 3.8
+},
+
+{
+"id": "HB013",
+"guest_name": "Vikram Rao",
+"city": "Jaipur",
+"hotel_name": "Royal Courtyard",
+"room_type": "Suite",
+"nights": 3,
+"room_rate": 8800,
+"booking_amount": 26400,
+"booking_status": "Completed",
+"rating": 4.7
+},
+
+{
+"id": "HB014",
+"guest_name": "Pooja Arora",
+"city": "Jaipur",
+"hotel_name": "Pink City Stay",
+"room_type": "Deluxe",
+"nights": 2,
+"room_rate": 4500,
+"booking_amount": 9000,
+"booking_status": "Confirmed",
+"rating": 4.1
+},
+
+{
+"id": "HB015",
+"guest_name": "Noel George",
+"city": "Kochi",
+"hotel_name": "Harbour View",
+"room_type": "Executive",
+"nights": 4,
+"room_rate": 6200,
+"booking_amount": 24800,
+"booking_status": "Completed",
+"rating": 4.6
+},
+
+{
+"id": "HB016",
+"guest_name": "Ishita Sen",
+"city": "Kochi",
+"hotel_name": "Palm Grove",
+"room_type": "Standard",
+"nights": 1,
+"room_rate": 2800,
+"booking_amount": 2800,
+"booking_status": "Confirmed",
+"rating": 4.0
+},
+
+{
+"id": "HB017",
+"guest_name": "Rahim Khan",
+"city": "Bhopal",
+"hotel_name": "Lake Square",
+"room_type": "Deluxe",
+"nights": 3,
+"room_rate": 4700,
+"booking_amount": 14100,
+"booking_status": "Confirmed",
+"rating": 4.2
+},
+
+{
+"id": "HB018",
+"guest_name": "Keerthi Iyer",
+"city": "Bhopal",
+"hotel_name": "Central Stay",
+"room_type": "Standard",
+"nights": 2,
+"room_rate": 3100,
+"booking_amount": 6200,
+"booking_status": "Completed",
+"rating": 4.1
+}]

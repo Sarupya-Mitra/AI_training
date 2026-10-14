@@ -1,0 +1,353 @@
+Create
+
+Database: hotel_network
+Container: bookings
+Partition Key: /city
+
+Data
+
+Insert these documents into the bookings container.
+
+{
+"id": "HB001",
+"guest_name": "Arjun Sethi",
+"city": "Hyderabad",
+"hotel_name": "Grand Meridian",
+"room_type": "Deluxe",
+"nights": 3,
+"room_rate": 5200,
+"booking_amount": 15600,
+"booking_status": "Confirmed",
+"rating": 4.5
+}
+
+{
+"id": "HB002",
+"guest_name": "Mira Kulkarni",
+"city": "Hyderabad",
+"hotel_name": "Lakeview Residency",
+"room_type": "Standard",
+"nights": 2,
+"room_rate": 3200,
+"booking_amount": 6400,
+
+"booking_status": "Completed",
+"rating": 4.1
+}
+
+{
+"id": "HB003",
+"guest_name": "Faizan Mir",
+"city": "Bengaluru",
+"hotel_name": "Tech Park Suites",
+"room_type": "Executive",
+"nights": 4,
+"room_rate": 6800,
+"booking_amount": 27200,
+"booking_status": "Confirmed",
+"rating": 4.7
+}
+
+{
+"id": "HB004",
+"guest_name": "Nisha Balan",
+"city": "Bengaluru",
+"hotel_name": "Urban Nest",
+"room_type": "Standard",
+"nights": 1,
+"room_rate": 3500,
+"booking_amount": 3500,
+"booking_status": "Cancelled",
+"rating": 3.9
+}
+
+{
+"id": "HB005",
+"guest_name": "Ritesh Mehra",
+"city": "Chennai",
+"hotel_name": "Marina Crown",
+"room_type": "Suite",
+"nights": 3,
+"room_rate": 9000,
+"booking_amount": 27000,
+"booking_status": "Completed",
+"rating": 4.8
+}
+
+{
+"id": "HB006",
+"guest_name": "Tara Nair",
+"city": "Chennai",
+"hotel_name": "Bay Comfort",
+"room_type": "Deluxe",
+"nights": 2,
+"room_rate": 4800,
+"booking_amount": 9600,
+"booking_status": "Confirmed",
+"rating": 4.2
+}
+
+{
+"id": "HB007",
+"guest_name": "Kabir Oberoi",
+"city": "Pune",
+"hotel_name": "Central Park Inn",
+"room_type": "Executive",
+"nights": 5,
+"room_rate": 6500,
+"booking_amount": 32500,
+"booking_status": "Completed",
+"rating": 4.6
+}
+
+{
+"id": "HB008",
+"guest_name": "Sneha Joshi",
+"city": "Pune",
+"hotel_name": "Green Leaf Hotel",
+"room_type": "Standard",
+"nights": 3,
+"room_rate": 3000,
+"booking_amount": 9000,
+"booking_status": "Confirmed",
+"rating": 4.0
+}
+
+{
+"id": "HB009",
+"guest_name": "Yusuf Merchant",
+
+"city": "Mumbai",
+"hotel_name": "Sea Crest",
+"room_type": "Suite",
+"nights": 4,
+"room_rate": 10500,
+"booking_amount": 42000,
+"booking_status": "Confirmed",
+"rating": 4.9
+}
+
+{
+"id": "HB010",
+"guest_name": "Divya Menon",
+"city": "Mumbai",
+"hotel_name": "Metro Grand",
+"room_type": "Deluxe",
+"nights": 2,
+"room_rate": 5500,
+"booking_amount": 11000,
+"booking_status": "Completed",
+"rating": 4.3
+}
+
+{
+"id": "HB011",
+"guest_name": "Aman Verma",
+"city": "Delhi",
+"hotel_name": "Capital Palace",
+"room_type": "Executive",
+"nights": 3,
+"room_rate": 7200,
+"booking_amount": 21600,
+"booking_status": "Confirmed",
+"rating": 4.4
+}
+
+{
+"id": "HB012",
+"guest_name": "Leena Francis",
+"city": "Delhi",
+"hotel_name": "North Gate Hotel",
+"room_type": "Standard",
+
+"nights": 2,
+"room_rate": 3400,
+"booking_amount": 6800,
+"booking_status": "Cancelled",
+"rating": 3.8
+}
+
+{
+"id": "HB013",
+"guest_name": "Vikram Rao",
+"city": "Jaipur",
+"hotel_name": "Royal Courtyard",
+"room_type": "Suite",
+"nights": 3,
+"room_rate": 8800,
+"booking_amount": 26400,
+"booking_status": "Completed",
+"rating": 4.7
+}
+
+{
+"id": "HB014",
+"guest_name": "Pooja Arora",
+"city": "Jaipur",
+"hotel_name": "Pink City Stay",
+"room_type": "Deluxe",
+"nights": 2,
+"room_rate": 4500,
+"booking_amount": 9000,
+"booking_status": "Confirmed",
+"rating": 4.1
+}
+
+{
+"id": "HB015",
+"guest_name": "Noel George",
+"city": "Kochi",
+"hotel_name": "Harbour View",
+"room_type": "Executive",
+"nights": 4,
+"room_rate": 6200,
+"booking_amount": 24800,
+
+"booking_status": "Completed",
+"rating": 4.6
+}
+
+{
+"id": "HB016",
+"guest_name": "Ishita Sen",
+"city": "Kochi",
+"hotel_name": "Palm Grove",
+"room_type": "Standard",
+"nights": 1,
+"room_rate": 2800,
+"booking_amount": 2800,
+"booking_status": "Confirmed",
+"rating": 4.0
+}
+
+{
+"id": "HB017",
+"guest_name": "Rahim Khan",
+"city": "Bhopal",
+"hotel_name": "Lake Square",
+"room_type": "Deluxe",
+"nights": 3,
+"room_rate": 4700,
+"booking_amount": 14100,
+"booking_status": "Confirmed",
+"rating": 4.2
+}
+
+{
+"id": "HB018",
+"guest_name": "Keerthi Iyer",
+"city": "Bhopal",
+"hotel_name": "Central Stay",
+"room_type": "Standard",
+"nights": 2,
+"room_rate": 3100,
+"booking_amount": 6200,
+"booking_status": "Completed",
+"rating": 4.1
+}
+
+Section A — Basic SELECT
+
+1. Display all documents in the container.
+	---- SELECT * FROM c
+2. Display only guest_name , city , and hotel_name .
+	---- SELECT c.guest_name,c.city,c.hotel_name FROM c
+3. Display guest_name , room_type , nights , and booking_amount .
+4. Display id , guest_name , and booking_status .
+
+Section B — WHERE Filters
+
+5. Display all bookings from Hyderabad.
+6. Display all bookings from Mumbai.
+7. Display all bookings with status Completed .
+8. Display all Suite bookings.
+9. Display all bookings with room type Executive .
+
+Section C — Numeric Filters
+
+10. Display bookings where booking_amount is greater than 20000 .
+11. Display bookings where room_rate is greater than 6000 .
+12. Display bookings where nights is greater than 3 .
+13. Display bookings where rating is below 4.2 .
+14. Display bookings where booking_amount is between 8000 and 25000 .
+15. Display bookings where room_rate is below 4000 .
+
+Section D — AND Conditions
+
+16. Display bookings that are Confirmed and have a booking amount greater than 15000 .
+
+17. Display Mumbai bookings where the room type is Suite .
+18. Display bookings where nights > 2 and rating > 4.5 .
+19. Display Completed bookings where booking_amount > 10000 .
+20. Display Standard rooms where room_rate < 3500 .
+
+Section E — OR Conditions
+
+21. Display bookings from Hyderabad or Bengaluru.
+22. Display bookings from Mumbai or Delhi.
+23. Display bookings where room type is Suite or Executive .
+24. Display bookings whose status is Completed or Confirmed .
+25. Display bookings from Chennai, Pune, or Kochi.
+
+Section F — ORDER BY
+
+26. Display all bookings ordered by booking_amount from lowest to highest.
+27. Display all bookings ordered by booking_amount from highest to lowest.
+28. Display bookings ordered by rating from highest to lowest.
+29. Display bookings ordered by nights from highest to lowest.
+30. Display bookings ordered first by city and then by booking_amount .
+
+Section G — COUNT
+
+31. Count the total number of bookings.
+32. Count the number of Confirmed bookings.
+33. Count the number of Completed bookings.
+34. Count the number of Suite bookings.
+
+35. Count the number of bookings in Pune.
+
+Section H — GROUP BY
+
+36. Count bookings by city.
+37. Count bookings by room_type .
+38. Count bookings by booking_status .
+39. Find total booking amount for each city.
+40. Find average booking amount for each room type.
+41. Find average rating for each city.
+42. Find total nights booked for each city.
+43. Find average room rate for each room type.
+
+Section I — GROUP BY with Filters
+
+44. Find total booking amount by city using only Confirmed bookings.
+45. Count Completed bookings in each city.
+46. Find average booking amount by city for bookings above 8000 .
+47. Find total nights grouped by room type.
+
+Section J — Combined Queries
+
+48. Find the top five bookings by booking_amount .
+49. Find the top three bookings by rating .
+50. Display Confirmed Suite bookings ordered by booking_amount descending.
+51. Display bookings where booking_amount > 15000 and rating > 4.5 , ordered by
+booking amount descending.
+
+52. Display Hyderabad or Bengaluru bookings where nights > 2 .
+53. Display Cancelled bookings ordered by rating from lowest to highest.
+54. Display guest_name , city , hotel_name , booking_amount , and rating for bookings
+above 20000 .
+55. Display Executive room bookings where room_rate >= 6000 , ordered by room rate
+descending.
+
+Section K — Business Questions
+
+56. Write a query to determine which city has the highest total booking amount.
+57. Write a query to determine which booking has the highest booking amount.
+58. Write a query to determine which booking has the highest rating.
+59. Write a query to determine which room type has the highest average booking amount.
+60. Write a query to determine which city has the highest total number of nights booked.
+61. Write a query to determine how many bookings are currently Cancelled.
+62. Write a query to determine which city has the highest number of Completed bookings.
+63. Write a query to determine which hotel has the highest booking amount.
+64. Write a query to determine which room type has the highest average room rate.
+65. Write a query to determine the total booking amount for all Confirmed bookings.

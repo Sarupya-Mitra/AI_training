@@ -1,0 +1,505 @@
+--------------------------------------------------------------------------- Room Assessment
+-- CREATE TABLE guests (
+-- guest_id INT PRIMARY KEY,
+-- guest_name VARCHAR(100),
+-- city VARCHAR(50),
+-- membership_level VARCHAR(20)
+-- );
+
+-- CREATE TABLE rooms (
+-- room_id INT PRIMARY KEY,
+-- room_type VARCHAR(50),
+-- price_per_night DECIMAL(10,2),
+-- floor_number INT,
+-- status VARCHAR(20)
+-- );
+
+-- CREATE TABLE bookings (
+-- booking_id INT PRIMARY KEY,
+-- guest_id INT,
+-- room_id INT,
+-- check_in_date DATE,
+-- check_out_date DATE,
+-- booking_status VARCHAR(30),
+-- FOREIGN KEY (guest_id)
+-- REFERENCES guests(guest_id),
+-- FOREIGN KEY (room_id)
+-- REFERENCES rooms(room_id)
+-- );
+
+-- CREATE TABLE services (
+-- service_id INT PRIMARY KEY,
+-- service_name VARCHAR(100),
+-- service_price DECIMAL(10,2)
+-- );
+
+-- CREATE TABLE booking_services (
+-- booking_service_id INT PRIMARY KEY,
+-- booking_id INT,
+-- service_id INT,
+-- quantity INT,
+-- FOREIGN KEY (booking_id)
+-- REFERENCES bookings(booking_id),
+-- FOREIGN KEY (service_id)
+-- REFERENCES services(service_id)
+-- );
+
+----------- Inserting data into guests table
+-- INSERT INTO guests VALUES
+-- (1, 'Aditya Kulkarni', 'Pune', 'Gold'),
+-- (2, 'Farah Siddiqui', 'Hyderabad', 'Silver'),
+-- (3, 'Joel Mathew', 'Kochi', 'Gold'),
+-- (4, 'Tanvi Deshmukh', 'Nagpur', 'Standard'),
+-- (5, 'Ritesh Batra', 'Delhi', 'Silver'),
+
+-- (6, 'Navya Krishnan', 'Chennai', 'Standard'),
+-- (7, 'Imran Sheikh', 'Mumbai', 'Gold'),
+-- (8, 'Keerthi Nair', 'Bengaluru', 'Standard'),
+-- (9, 'Arvind Sethi', 'Jaipur', 'Silver'),
+-- (10, 'Simran Gill', 'Chandigarh', 'Standard');
+
+----------- Inseting data into rooms table
+-- INSERT INTO rooms VALUES
+-- (101, 'Standard', 3200, 1, 'Available'),
+-- (102, 'Standard', 3500, 1, 'Occupied'),
+-- (201, 'Deluxe', 5200, 2, 'Available'),
+-- (202, 'Deluxe', 5500, 2, 'Occupied'),
+-- (301, 'Suite', 8500, 3, 'Available'),
+-- (302, 'Suite', 9000, 3, 'Maintenance'),
+-- (401, 'Executive', 6800, 4, 'Available'),
+-- (402, 'Executive', 7200, 4, 'Occupied');
+
+----------- Inserting data into bookings table
+-- INSERT INTO bookings VALUES
+-- (1001, 1, 202, '2026-10-01', '2026-10-04', 'Completed'),
+-- (1002, 2, 102, '2026-10-03', '2026-10-06', 'Completed'),
+-- (1003, 3, 301, '2026-10-05', '2026-10-08', 'Confirmed'),
+-- (1004, 4, 201, '2026-10-07', '2026-10-09', 'Cancelled'),
+-- (1005, 1, 401, '2026-10-10', '2026-10-13', 'Confirmed'),
+-- (1006, 5, 101, '2026-10-11', '2026-10-14', 'Confirmed'),
+-- (1007, 7, 402, '2026-10-12', '2026-10-16', 'Confirmed'),
+-- (1008, 2, 201, '2026-10-18', '2026-10-20', 'Confirmed');
+
+----------- Inserting data into services table
+-- INSERT INTO services VALUES
+-- (501, 'Breakfast Buffet', 750),
+-- (502, 'Airport Pickup', 1200),
+-- (503, 'Laundry', 500),
+-- (504, 'Spa Session', 1800),
+-- (505, 'Dinner Buffet', 1100);
+
+----------- Inserting data into booking services table
+-- INSERT INTO booking_services VALUES
+-- (1, 1001, 501, 3),
+-- (2, 1001, 503, 1),
+-- (3, 1002, 502, 1),
+-- (4, 1002, 501, 2),
+-- (5, 1003, 504, 2),
+-- (6, 1003, 505, 2),
+-- (7, 1005, 501, 3),
+-- (8, 1005, 502, 1),
+-- (9, 1006, 503, 2),
+-- (10, 1007, 504, 1),
+-- (11, 1007, 505, 3);
+
+----------- 1,2
+--select * from guests
+--select guest_name,city,membership_level from guests
+
+---------- 3,4
+--select * from rooms where price_per_night > 5000
+--select * from rooms where status='Available'
+
+----------- 5
+-- select * from guests where membership_level = 'Gold'
+
+----------- 6,7
+-- select * from bookings where booking_status = 'Confirmed'
+--select * from bookings order by check_in_date
+----------- 8
+--select * from rooms order by price_per_night desc
+
+----------- 9
+-- select * from rooms where price_per_night between 4000 and 8000
+
+----------- 10
+--select * from guests where city in ('Hyderabad','Pune','Mumbai')
+
+----------- 11,12,13,14,15
+--select count(*) from rooms
+--select avg(price_per_night) from rooms
+-- select max(price_per_night) from rooms
+-- select min(price_per_night) from rooms
+-- select count(*),room_type from rooms group by room_type
+
+----------- 16
+--select avg(price_per_night),room_type from rooms group by room_type
+
+
+----------- 17
+--select count(*),membership_level from guests group by membership_level
+
+----------- 18
+-- select count(*),booking_status from bookings group by booking_status
+
+----------- 19,20
+--select service_name,sum(service_price) as total_value from services group by service_name
+-- select service_name,avg(service_price) from services group by service_name 
+
+----------- 21
+-- select b.booking_id,g.guest_name,g.city,b.check_in_date,b.check_out_date,b.booking_Status
+-- from guests g INNER JOIN bookings b ON b.guest_id = g.guest_id
+
+----------- 22
+-- select b.booking_id,r.room_type,r.price_per_night,b.check_in_date,b.check_out_date
+-- from bookings b INNER JOIN rooms r on r.room_id = b.room_id
+
+----------- 23
+-- select g.guest_name, r.room_type, r.price_per_night, b.booking_status
+-- from guests g INNER JOIN
+-- bookings b on g.guest_id = b.guest_id
+-- INNER JOIN rooms r on r.room_id = b.room_id
+
+----------- 24
+-- select b.booking_id, s.service_name, bs.quantity, s.service_price
+-- from bookings b INNER JOIN booking_services bs
+-- ON b.booking_id = bs.booking_id
+-- INNER JOIN services s ON s.service_id = bs.service_id
+
+----------- 25
+-- select b.booking_id,s.service_name,bs.quantity, s.service_price,
+-- (bs.quantity * s.service_price) as service_cost
+-- from bookings b INNER JOIN booking_services bs
+-- ON b.booking_id = bs.booking_id
+-- INNER JOIN services s ON s.service_id = bs.service_id
+
+----------- 26
+-- select g.guest_name,b.booking_id,r.room_type, s.service_name,bs.quantity,b.booking_status
+-- from guests g 
+-- INNER JOIN bookings b on g.guest_id = b.guest_id
+-- INNER JOIN rooms r on r.room_id = b.room_id
+-- INNER JOIN booking_services bs on bs.booking_id = b.booking_id
+-- INNER JOIN services s on s.service_id = bs.service_id
+
+----------- 27
+-- select g.guest_name, b.booking_id, b.booking_status 
+-- from guests g LEFT Join bookings b on g.guest_id = b.guest_id
+-- where b.booking_status IS NULL
+
+----------- 28
+-- select g.guest_id, g.guest_name, g.city 
+-- from guests g LEFT Join bookings b on g.guest_id = b.guest_id
+-- where b.booking_status IS NULL
+
+----------- 29
+-- CREATE OR REPLACE procedure get_total_bookings_per_guest(
+-- IN p_guest_id INT,
+-- INOUT result_cursor REFCURSOR default 'guest_booking_details')
+-- LANGUAGE plpgsql
+-- AS $$
+-- BEGIN
+-- 	open result_cursor for
+-- 	Select g.guest_name, count(distinct b.booking_id) AS total_bookings
+-- 	from guests g LEFT JOIN bookings b
+-- 	ON g.guest_id = b.guest_id
+-- 	where g.guest_id = p_guest_id
+-- 	group by g.guest_id;
+-- END;
+-- $$;
+
+-- BEGIN;
+-- CALL get_total_bookings_per_guest(1)
+-- FETCH all from "guest_booking_details"
+-- COMMIT;
+
+
+----------- 30
+CREATE OR REPLACE procedure get_total_spending_per_booking(
+IN p_booking_id INT,
+INOUT result_cursor REFCURSOR default 'total_spending')
+LANGUAGE plpgsql
+AS $$
+BEGIN
+	open result_cursor for
+	Select distinct b.booking_id,g.guest_name, sum(bs.quantity * s.service_price) AS total_service_cost
+	from guests g INNER JOIN bookings b
+	ON g.guest_id = b.guest_id
+	INNER JOIN booking_services bs on bs.booking_id = b.booking_id
+	INNER JOIN services s on s.service_id = bs.service_id
+	where b.booking_id = p_booking_id
+	GROUP BY b.booking_id,g.guest_id;
+END;
+$$;
+
+BEGIN;
+CALL get_total_spending_per_booking(1002)
+FETCH all from "total_spending"
+COMMIT;
+
+----------- Debugging 30
+select distinct b.booking_id,g.guest_name,sum(bs.quantity * s.service_price) from 
+bookings b INNER JOIN booking_services bs on
+bs.booking_id = b.booking_id
+INNER JOIN services s on s.service_id = bs.service_id 
+INNER JOIN guests g on g.guest_id = b.guest_id
+group by b.booking_id, g.guest_name
+group by b.booking_id
+
+
+
+--------------------------------------------------------------------------------------------------- Vehicle Assessment
+-- CREATE TABLE customers (
+-- customer_id INT PRIMARY KEY,
+-- customer_name VARCHAR(100),
+-- city VARCHAR(50)
+-- );
+
+-- INSERT INTO customers VALUES
+-- (1, 'Aarav Menon', 'Kochi'),
+-- (2, 'Diya Kapoor', 'Jaipur'),
+-- (3, 'Naveen Iyer', 'Coimbatore'),
+-- (4, 'Saira Mirza', 'Bhopal'),
+-- (5, 'Harish Babu', 'Vijayawada'),
+-- (6, 'Rhea Dutta', 'Guwahati');
+
+-- CREATE TABLE vehicles (
+-- vehicle_id INT PRIMARY KEY,
+-- customer_id INT,
+-- model_name VARCHAR(100),
+-- battery_capacity INT,
+-- registration_no VARCHAR(20),
+-- FOREIGN KEY (customer_id)
+-- REFERENCES customers(customer_id)
+-- );
+
+-- INSERT INTO vehicles VALUES
+-- (101, 1, 'Volt X1', 60, 'KL07EV101'),
+-- (102, 2, 'EcoDrive S', 45, 'RJ14EV202'),
+-- (103, 3, 'Urban E3', 50, 'TN38EV303'),
+-- (104, 4, 'Volt X1', 60, 'MP04EV404'),
+-- (105, 5, 'E-Motion Pro', 75, 'AP16EV505');
+
+-- CREATE TABLE technicians (
+-- technician_id INT PRIMARY KEY,
+-- technician_name VARCHAR(100),
+-- specialization VARCHAR(50)
+-- );
+
+-- INSERT INTO technicians VALUES
+-- (201, 'Manoj Pillai', 'Battery'),
+-- (202, 'Irfan Qureshi', 'Electrical'),
+-- (203, 'Sneha Kulkarni', 'General Service'),
+-- (204, 'Joseph Thomas', 'Diagnostics');
+
+-- CREATE TABLE service_bookings (
+-- booking_id INT PRIMARY KEY,
+-- vehicle_id INT,
+-- technician_id INT,
+-- service_date DATE,
+-- service_status VARCHAR(30),
+-- FOREIGN KEY (vehicle_id)
+-- REFERENCES vehicles(vehicle_id),
+-- FOREIGN KEY (technician_id)
+-- REFERENCES technicians(technician_id)
+-- );
+
+-- INSERT INTO service_bookings VALUES
+-- (1001, 101, 201, '2026-10-01', 'Completed'),
+-- (1002, 102, 202, '2026-10-02', 'Completed'),
+-- (1003, 103, 203, '2026-10-04', 'In Progress'),
+-- (1004, 104, 204, '2026-10-05', 'Scheduled'),
+-- (1005, 101, 203, '2026-10-07', 'Scheduled');
+
+-- CREATE TABLE service_items (
+-- service_item_id INT PRIMARY KEY,
+-- booking_id INT,
+-- service_name VARCHAR(100),
+-- cost DECIMAL(10,2),
+-- FOREIGN KEY (booking_id)
+-- REFERENCES service_bookings(booking_id)
+-- );
+
+-- INSERT INTO service_items VALUES
+-- (1, 1001, 'Battery Inspection', 1800),
+-- (2, 1001, 'Software Update', 900),
+-- (3, 1002, 'Charging Port Repair', 2500),
+-- (4, 1003, 'Brake Inspection', 1200),
+-- (5, 1003, 'Wheel Alignment', 1500),
+-- (6, 1004, 'Diagnostic Scan', 1000),
+-- (7, 1005, 'General Service', 2200);
+
+----- 1
+--select * from vehicles
+
+----- 2
+--select * from service_bookings where service_status = 'Scheduled'
+
+----- 3
+-- select * from service_items where cost > 1500
+
+----- 4
+-- select * from technicians where specialization in('Battery','Electrical')
+
+----- 5
+-- select  c.customer_id,c.customer_name,count(v.vehicle_id) from customers c 
+-- INNER JOIN vehicles v on c.customer_id = v.customer_id group by c.customer_id
+
+----- 6
+-- select avg(cost) from service_items
+
+----- 7
+-- select c.customer_name,v.model_name,v.registration_no from customers c
+-- INNER JOIN vehicles v ON c.customer_id = v.customer_id
+
+----- 8
+-- select v.vehicle_id,v.model_name,s.service_date,s.service_status
+-- from vehicles v INNER JOIN service_bookings s ON
+-- v.vehicle_id = s.vehicle_id
+
+----- 9
+-- select sb.booking_id,t.technician_id,t.specialization, sb.service_status
+-- from service_bookings sb INNER JOIN technicians t on 
+-- sb.technician_id = t.technician_id
+
+----- 10
+-- select c.customer_name,v.model_name,t.technician_name,sb.service_date,sb.service_status
+-- from customers c INNER JOIN vehicles v ON c.customer_id = v.customer_id
+-- INNER JOIN service_bookings sb ON sb.vehicle_id = v.vehicle_id
+-- INNER JOIN TECHNICIANS t on t.technician_id = sb.technician_id
+
+----- 11
+-- select sb.booking_id,sum(s.cost) from service_bookings sb INNER JOIN service_items s ON
+-- sb.booking_id = s.booking_id group by sb.booking_id
+
+----- 12
+select c.customer_name,sb.booking_id,s.service_name from customers c
+INNER JOIN vehicles v on v.customer_id = c.customer_id
+INNER JOIN service_bookings sb on sb.vehicle_id = v.vehicle_id
+INNER JOIN service_items s on s.booking_id = sb.booking_id
+
+----- 13
+-- CREATE OR REPLACE view service_booking_summary as 
+-- 	Select sb.booking_id,c.customer_name,v.model_name,
+-- 	t.technician_name,sb.service_date,sb.service_status from 
+-- 	customers c INNER JOIN vehicles v ON c.customer_id = v.customer_id
+-- 	INNER JOIN SERVICE_BOOKINGS sb on v.vehicle_id = sb.vehicle_id
+-- 	INNER JOIN technicians t on t.technician_id = sb.technician_id;
+	
+
+-- Select * from service_booking_summary
+
+----- 14
+-- CREATE OR REPLACE VIEW service_cost_summary as
+-- 	SELECT sb.booking_id,c.customer_name,(si.cost) 
+-- 	from customers c INNER JOIN vehicles v ON c.customer_id = v.customer_id
+-- 	INNER JOIN service_bookings sb on sb.vehicle_id = v.vehicle_id
+-- 	INNER join service_items si on si.booking_id = sb.booking_id;
+	
+-- select * from service_cost_summary
+
+----- 15
+-- CREATE OR REPLACE function calculate_service_discount
+-- (IN cost DECIMAL)
+-- RETURNS DECIMAL LANGUAGE plpgsql
+-- AS $$
+-- BEGIN 
+-- 	IF cost >=2500 THEN 
+-- 		RETURN (cost*0.10);
+-- 	ELSE 
+-- 		RETURN 0;
+-- 	end if;
+-- END;
+-- $$;
+
+-- select cost,calculate_service_discount(cost) from service_items
+
+----- 16
+-- CREATE OR REPLACE FUNCTION calculate_final_cost
+-- (IN cost DECIMAL,IN discount DECIMAL)
+-- RETURNs DECIMAL LANGUAGE plpgsql
+-- as $$
+-- BEGIN
+-- 	return (cost-discount);
+-- END;
+-- $$;
+
+-- select cost,calculate_service_discount(cost),calculate_final_cost(cost,calculate_service_discount(cost)) 
+-- from service_items
+
+
+----- 17
+-- CREATE OR REPLACE procedure update_service_status
+-- (IN p_booking_id INT,
+-- IN p_new_status VARCHAR(30),
+-- INOUT res_cursor REFCURSOR DEFAULT 'update_booking')
+-- LANGUAGE plpgsql
+-- as $$
+-- BEgIN open res_cursor for
+-- 	Update service_bookings set service_status = p_new_status
+-- 	where booking_id = p_booking_id
+-- 	RETURNING *;  --- THIS WILL make the update query to work like a select query
+-- END;
+-- $$;
+
+-- BEGIN;
+-- CALL update_service_status(1005,'In Progress','update_booking')
+-- Fetch all from "update_booking"
+-- Commit;
+
+----- 18
+-- CREATE OR REPLACE PROCEDURE complete_old_services
+-- (INOUT RES_CURSOR REFCURSOR default 'complete_services')
+-- LANGUAGE plpgsql
+-- as $$
+-- BEGIN
+-- open RES_CURSOR FOR
+-- 	Update service_bookings set service_status = 'Completed'
+-- 	where service_status = 'In Progress'
+-- 	RETURNING *;
+-- END;
+-- $$;
+
+-- begin;
+-- call complete_old_services();
+-- fetch all from "complete_services"
+-- commit;
+
+----- 19
+-- create or replace procedure assign_technician
+-- (IN p_booking_id INT, IN p_technician_id INT,
+-- INOUT res_cursor REFCURSOR default 'assign_technician')
+-- LANGUAGE plpgsql
+-- as $$
+-- BEGIN 
+-- 	open res_cursor for
+-- 	UPDATE service_bookings set technician_id = p_technician_id
+-- 	where booking_id = p_booking_id
+-- 	RETURNING *;
+-- END;
+-- $$;
+
+-- begin;
+-- call assign_technician(1001,202);
+-- fetch all from "assign_technician"
+-- commit;
+
+
+----- 20
+-- CREATE OR REPLACE procedure increase_service_cost
+-- (IN p_percentage DECIMAL,
+-- INOUT res_cursor REFCURSOR default 'increase_service_cost')
+-- LANGUAGE plpgsql
+-- as $$
+-- Begin 
+-- open res_cursor for
+-- 	Update service_items set cost = (cost + cost*p_percentage)
+-- 	RETURNING *;
+-- END;
+-- $$;
+
+-- begin;
+-- call increase_service_cost(10);
+-- fetch all from "increase_service_cost";
+-- commit;
+
+-- select * from service_items
