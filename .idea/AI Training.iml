@@ -9,12 +9,11 @@
       <excludeFolder url="file://$MODULE_DIR$/Day 2 - Oct 6/Postgre_prac/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Day 7 - Oct 13/Day7/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Day 7 - Oct 13/Day7_p2/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Day 9 - Oct 15/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Day 9 - Oct 15/PyMupdf_practice/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Day 9 - Oct 15/PyPdf_prac/.venv" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
-  <component name="PackageRequirementsSettings" />
-  <component name="PyDocumentationSettings" />
-  <component name="ReSTService" />
-  <component name="TestRunnerService" />
 </module>
