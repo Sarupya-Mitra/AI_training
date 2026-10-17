@@ -1,0 +1,42 @@
+INFO - Registration R101 validated successfully 
+ ................. 
+
+ERROR - 1 validation error for Registration
+age
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='arteta', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.14/v/int_parsing 
+ ................. 
+
+WARNING - VIP registration detected 
+ ................. 
+
+ERROR - 1 validation error for Registration
+amount
+  Input should be greater than 0 [type=greater_than, input_value=-500, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.14/v/greater_than 
+ ................. 
+
+INFO - Registration R104 validated successfully 
+ ................. 
+
+INFO - Registration R101 validated successfully 
+ ................. 
+
+ERROR - 1 validation error for Registration
+age
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='arteta', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.14/v/int_parsing 
+ ................. 
+
+WARNING - VIP registration detected 
+ ................. 
+
+ERROR - 1 validation error for Registration
+amount
+  Input should be greater than 0 [type=greater_than, input_value=-500, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.14/v/greater_than 
+ ................. 
+
+INFO - Registration R104 validated successfully 
+ ................. 
+

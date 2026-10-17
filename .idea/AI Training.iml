@@ -12,6 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Day 9 - Oct 15/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Day 9 - Oct 15/PyMupdf_practice/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Day 9 - Oct 15/PyPdf_prac/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Day 9 - Oct 15/Tesseract_ocr_practice/.venv" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
