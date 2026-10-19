@@ -1,0 +1,58 @@
+Exercise — PostgreSQL CRUD from PyCharm
+
+Create a PostgreSQL database:
+
+CREATE DATABASE library_store;
+
+Connect to library_store and create this table:
+
+CREATE TABLE books (
+book_id INT PRIMARY KEY,
+title VARCHAR(100),
+author VARCHAR(100),
+category VARCHAR(50),
+price DECIMAL(10,2),
+stock INT
+);
+
+That is the only preparation to do in PostgreSQL.
+Everything else should be done from PyCharm.
+Create a project:
+
+library_crud_project
+
+Install:
+
+python -m pip install psycopg2-binary
+
+Create:
+
+main.py
+
+Tasks
+
+1. Connect Python to PostgreSQL using psycopg2 .
+2. Print:
+
+Connected to PostgreSQL successfully
+
+after the connection is established.
+3. Insert these 4 books from Python:
+
+201 | Atomic Habits | James Clear | Self Help | 650 | 12
+202 | Clean Code | Robert Martin | Technology | 900 | 8
+203 | The Alchemist | Paulo Coelho | Fiction | 500 | 15
+204 | Deep Work | Cal Newport | Productivity| 700 | 10
+
+4. Read and display all books.
+5. Display only books from the Technology category.
+6. Display books whose price is greater than 600 .
+7. Update the price of book 202 to 950 .
+8. Update the stock of book 204 to 14 .
+9. Display the updated records.
+10. Delete book 203 .
+11. Display all remaining books.
+12. Add one new book of your own choice.
+13. Find the book with the highest price.
+14. Find the total stock available across all books.
+15. Count how many books exist in each category.
