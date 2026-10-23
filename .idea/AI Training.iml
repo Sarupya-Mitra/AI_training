@@ -20,7 +20,9 @@
       <excludeFolder url="file://$MODULE_DIR$/Day 12 - Oct 21/Flask_assignment/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Day 12 - Oct 21/PyTest_intro/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Day 12 - Oct 21/Pytest_assignment1/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Day 13 - Oct 22/Api_with_react_assignment/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Day 13 - Oct 22/Api_with_react_intro/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Day 13 - Oct 22/Practice_react/Api_part_with_db_conn/.venv" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
