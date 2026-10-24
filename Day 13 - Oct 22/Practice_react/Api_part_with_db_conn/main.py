@@ -6,7 +6,8 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173" , "http://127.0.0.1:5173"],
+    allow_origins=["http://localhost:5173" , "http://127.0.0.1:5173","http://localhost:5173/add-student",
+                   "http://127.0.0.1:5173/add-student"],
     allow_credentials=True,
     allow_methods = ["*"],
     allow_headers=["*"],
@@ -51,3 +52,21 @@ def insert_student(student: dict):
     cursor.close()
     conn.close()
     return student
+
+@app.put("/students/{student_id}")
+def update_student(student_id:int, student:dict):
+    conn = get_conn()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE students set name=%s,age=%s,standard=%s where student_id=%s",
+                   (student["name"], student["age"], student["standard"], student_id))
+    if cursor.rowcount == 0:
+        cursor.close()
+        conn.close()
+        raise HTTPException(status_code=404, detail="Student not found")
+
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return student
+
+

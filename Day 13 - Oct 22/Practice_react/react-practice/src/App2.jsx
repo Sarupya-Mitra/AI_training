@@ -1,6 +1,11 @@
 import "./App.css"
-import Students from "./Students.jsx"
+import DisplayAll from "./DisplayAllStudents.jsx"
+import Home from "./Home.jsx"
+import AddStudent from "./AddStudent.jsx"
 import {useEffect,useState} from "react"
+import {BrowserRouter,Routes,Route,Link,useParams,useNavigate} from "react-router-dom"
+import EditStudents from "./EditStudents.jsx"
+import EditParticularStudent from "./EditParticularStudent.jsx"
 
 function App(){
     const[students,setStudents] = useState([])
@@ -10,38 +15,26 @@ function App(){
             .then((data) => setStudents(data))
             .catch((error) => {console.log("Error : ",error)})
     })
-    const[name,setName] = useState("")
-    const[age,setAge] = useState("")
-    const[standard,setStandard] = useState("")
 
-    function addStudent(event){
-        event.preventDefault()
-        const newStudent = {student_id : students.length + 1, name : name,age: age, standard : standard}
-        fetch("http://127.0.0.1:8000/students", {method : "POST",body : JSON.stringify(newStudent),})
-        .then((response) => {
-            if (!response.ok) {throw new Error("Failed to add new student");}
-            return response.json();})
-        .then((savedstudent)=> {
-            setStudents([...students,newStudent])
-            setName("")
-            setAge("")
-            setStandard("")
-        })
-        .catch((error) => {console.log("Error Occurred: ",error)})
-    }
     return(
-        <div>
-            <input type="text" placeholder="Enter Name" value = {name} onChange={(e) => setName(e.target.value)}></input>
-            <input type="number" placeholder="Enter Age" value = {age} onChange={(e)=>setAge(e.target.value)}></input>
-            <input type="number" placeholder = "Enter Standard" value = {standard} onChange={(e) => setStandard(e.target.value)}></input>
-            <button onClick={addStudent}>Add Student</button>
-            {students.map((student) => (
-                <div key={student.student_id}>
-                    <Students name={student.name} age={student.age} standard={student.standard}/>
-                    <br></br>
-                </div>
-            ))}
-        </div>
+        <BrowserRouter>
+            <nav>
+                <Link to="/">Home</Link>
+                {" | "}
+                <Link to="/students">All Students</Link>
+                {" | "}
+                <Link to="/add-student">Add Student</Link>
+                {" | "}
+                <Link to={"/edit-student"}>Edit Student</Link>
+            </nav>
+            <Routes>
+                <Route path="/"  element={<Home />}/>
+                <Route path="/students" element={<DisplayAll students={students}/>}/>
+                <Route path="/add-student" element={<AddStudent students={students}/>}/>
+                <Route path="/edit-student" element = {<EditStudents students={students}/>}/>
+                <Route path="/edit-particular-student/:id" element={<EditParticularStudent students={students}/>} />
+            </Routes>
+        </BrowserRouter>
     )
 }
 
