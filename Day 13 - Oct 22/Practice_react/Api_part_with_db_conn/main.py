@@ -69,4 +69,20 @@ def update_student(student_id:int, student:dict):
     conn.close()
     return student
 
+@app.delete("/students/{student_id}")
+def delete_student(student_id : int):
+    conn = get_conn()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM students where student_id=%s",(student_id,))
+
+    if cursor.rowcount == 0:
+        cursor.close()
+        conn.close()
+        raise HTTPException(status_code=404, detail="Student not found")
+
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return {"message" : "Student deleted"}
+
 

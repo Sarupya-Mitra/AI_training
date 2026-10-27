@@ -6,6 +6,8 @@ import {useEffect,useState} from "react"
 import {BrowserRouter,Routes,Route,Link,useParams,useNavigate} from "react-router-dom"
 import EditStudents from "./EditStudents.jsx"
 import EditParticularStudent from "./EditParticularStudent.jsx"
+import DeleteStudents from "./DeleteStudents.jsx"
+import DeleteParticularStudent from "./DeleteParticularStudent.jsx"
 
 function App(){
     const[students,setStudents] = useState([])
@@ -26,6 +28,8 @@ function App(){
                 <Link to="/add-student">Add Student</Link>
                 {" | "}
                 <Link to={"/edit-student"}>Edit Student</Link>
+                {" | "}
+                <Link to={"/delete-student"}>Delete Student</Link>
             </nav>
             <Routes>
                 <Route path="/"  element={<Home />}/>
@@ -33,6 +37,8 @@ function App(){
                 <Route path="/add-student" element={<AddStudent students={students}/>}/>
                 <Route path="/edit-student" element = {<EditStudents students={students}/>}/>
                 <Route path="/edit-particular-student/:id" element={<EditParticularStudent students={students}/>} />
+                <Route path="/delete-student" element={<DeleteStudents students={students}/>}/>
+                <Route path = "/delete-particular-student/:id" element={<DeleteParticularStudent students={students}/>}/>
             </Routes>
         </BrowserRouter>
     )
