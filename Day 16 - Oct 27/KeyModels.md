@@ -8,6 +8,9 @@ A decoder-only transformer eliminates the encoder component and directly generat
 The defining characteristic of GPT's decoder blocks is the masked(causal) self-attention, which ensures each position can attend to itself and previous positions, not future positions.
 ![Gpt_architecture](GPT_arch.jpg)
 
+##### If GPT only uses decoder blocks, how does it understand the prompt?
+In the original transformer architecture, the encoder used to deal with the input and convert it to suitable embeddings and pass it to the decoder so that the decoder can generate the next tokens or words. But in GPT, there is no encoder, it takes the prompt and the generated response as one single continuous sequence. When we paste a 500-word prompt into ChatGPT, the decoder processes those 500 words all at once to build context, and then seamlessly switches to predicting the 501st word, the 502nd word, and so on.
+
 ### DALL-E:
 DALL-E is a neural-network based picture generating system. It utilizes a modified version of GPT-3 architecture.
 Since GPT-3 relies on the Transformer architecture, a neural network design known for its efficacy in handling sequences, it empowers DALL-E to understand and process textual descriptions efficiently.
