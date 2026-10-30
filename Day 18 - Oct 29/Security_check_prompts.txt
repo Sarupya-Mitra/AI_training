@@ -1,0 +1,9 @@
+1. Act as a senior cybersecurity engineer. Review my React project and help me harden it. Please check for common vulnerabilities like 
+Cross-Site Scripting (XSS), insecure storage of tokens, hardcoded secrets, and outdated dependencies. Walk me through step-by-step changes I need to make 
+in my code.
+ 
+2. Check my React components for unsafe patterns—such as the use of dangerouslySetInnerHTML, direct DOM manipulation with refs, or unvalidated user 
+input—and Give me the list of problems you have identified.
+ 
+3. Scan my code and configuration to ensure I am not accidentally exposing API keys, private tokens, or sensitive environment variables on the client side. 
+Show me how to properly move these to a secure backend or use safe environment prefixes.
