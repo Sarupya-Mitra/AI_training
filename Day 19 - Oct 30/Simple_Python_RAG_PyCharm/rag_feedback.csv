@@ -1,0 +1,2 @@
+timestamp,model,question,answer,retrieved_chunk_ids,best_distance,total_seconds,feedback
+2026-11-02T14:39:46,nvidia/nemotron-3.5-super-vl:free,How many annual leaves does an employee receive?,Full-time employees receive 18 days of paid annual leave per calendar year. [chunk_003],"chunk_003, chunk_008, chunk_002",0.5651,7.31,Correct

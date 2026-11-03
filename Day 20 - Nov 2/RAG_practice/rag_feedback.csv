@@ -1,0 +1,27 @@
+timestamp,model,question,answer,retrieved_chunk_ids,best_distance,total_seconds,feedback
+2026-11-02T14:49:38,nvidia/nemotron-3.5-lightning:free,How many annual leaves does an employee get?,16 days of paid annual leave each calendar year [chunk_002],"doc_1_chunk_002, doc_1_chunk_003, doc_1_chunk_001",0.566,27.82,Correct
+2026-11-02T14:50:16,nvidia/nemotron-3.5-lightning:free,Which days must an employee work mandatorily from office?,"Based on the reference text, employees must work from the office on **Tuesdays and Thursdays**. 
+
+[T002]","doc_1_chunk_001, doc_1_chunk_002, doc_1_chunk_003",0.4331,6.7,Correct
+2026-11-02T14:50:58,nvidia/nemotron-3.5-lightning:free,What is the annual travel allowance?,I could not find that information in the document.,"doc_1_chunk_003, doc_1_chunk_002, doc_1_chunk_001",0.6008,20.08,Correct
+2026-11-02T14:52:38,dots-studio/dots-3-note-preview:free,How many annual leaves does an employee get?,"
+
+Based on the document, full-time employees receive **16 days** of paid annual leave each calendar year [chunk_002].","doc_1_chunk_002, doc_1_chunk_003, doc_1_chunk_001",0.566,5.76,Correct
+2026-11-02T14:53:00,dots-studio/dots-3-note-preview:free,Which days must an employee work mandatorily from office?,"
+
+Based on the document, employees must mandatorily work from the office on **Tuesdays and Thursdays** [SOURCE doc_1_chunk_002].","doc_1_chunk_001, doc_1_chunk_002, doc_1_chunk_003",0.4331,8.57,Correct
+2026-11-02T14:53:22,dots-studio/dots-3-note-preview:free,What is the annual travel allowance?,"
+
+I could not find that information in the document.","doc_1_chunk_003, doc_1_chunk_002, doc_1_chunk_001",0.6008,6.84,Correct
+2026-11-02T15:04:18,nvidia/nemotron-3.5-super-vl:free,How many annual leaves does an employee get?,Full-time employees receive 16 days of paid annual leave each calendar year. [chunk_002],"doc_1_chunk_002, doc_1_chunk_003, doc_1_chunk_001",0.566,3.74,Correct
+2026-11-02T15:04:33,nvidia/nemotron-3.5-super-vl:free,Which days must an employee work mandatorily from office?,Employees must work mandatorily from the office on Tuesdays and Thursdays [chunk_001][chunk_002].,"doc_1_chunk_001, doc_1_chunk_002, doc_1_chunk_003",0.4331,6.0,Correct
+2026-11-02T15:04:47,nvidia/nemotron-3.5-super-vl:free,What is the annual travel allowance?,I could not find that information in the document.,"doc_1_chunk_003, doc_1_chunk_002, doc_1_chunk_001",0.6008,2.3,Correct
+2026-11-02T15:16:42,nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free,How many annual leaves does an employee get?,16 days of paid annual leave per calendar year. [chunk_002],"doc_1_chunk_002, doc_1_chunk_003, doc_1_chunk_001",0.566,3.1,Correct
+2026-11-02T15:16:55,nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free,Which days must an employee work mandatorily from office?,Employees must work from the office on Tuesdays and Thursdays. [chunk_001][chunk_002],"doc_1_chunk_001, doc_1_chunk_002, doc_1_chunk_003",0.4331,3.21,Correct
+2026-11-02T15:17:03,nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free,What is the annual travel allowance?,I could not find that information in the document.,"doc_1_chunk_003, doc_1_chunk_002, doc_1_chunk_001",0.6008,2.29,Correct
+2026-11-02T15:19:43,nvidia/nemotron-3-ultra-550b-a55b:free,How many annual leaves does an employee get?,Full-time employees receive 16 days of paid annual leave each calendar year [chunk_002].,"doc_1_chunk_002, doc_1_chunk_003, doc_1_chunk_001",0.566,4.43,Correct
+2026-11-02T15:20:25,nvidia/nemotron-3-ultra-550b-a55b:free,Which days must an employee work mandatorily from office?,"According to the policy, employees must work from the office on **Tuesdays and Thursdays** [chunk_001][chunk_002].","doc_1_chunk_001, doc_1_chunk_002, doc_1_chunk_003",0.4331,28.31,Correct
+2026-11-02T15:20:42,nvidia/nemotron-3-ultra-550b-a55b:free,What is the annual travel allowance?,I could not find that information in the document.,"doc_1_chunk_003, doc_1_chunk_002, doc_1_chunk_001",0.6008,4.52,Correct
+2026-11-02T15:23:36,deepseek/deepseek-v4.1-flash-1017,How many annual leaves does an employee get?,Full-time employees receive 16 days of paid annual leave each calendar year [doc_1_chunk_002].,"doc_1_chunk_002, doc_1_chunk_003, doc_1_chunk_001",0.566,5.3,Correct
+2026-11-02T15:23:52,deepseek/deepseek-v4.1-flash-1017,Which days must an employee work mandatorily from office?,Employees must work mandatorily from the office on **Tuesdays and Thursdays** [doc_1_chunk_002].,"doc_1_chunk_001, doc_1_chunk_002, doc_1_chunk_003",0.4331,2.8,Correct
+2026-11-02T15:24:05,deepseek/deepseek-v4.1-flash-1017,What is the annual travel allowance?,I could not find that information in the document.,"doc_1_chunk_003, doc_1_chunk_002, doc_1_chunk_001",0.6008,3.78,Correct
