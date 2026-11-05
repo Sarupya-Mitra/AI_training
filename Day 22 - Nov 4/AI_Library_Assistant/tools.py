@@ -1,6 +1,7 @@
 
 import json
 import re
+from typing import Callable
 
 STOP_WORDS = {"the","an","a","and","with"}
 
@@ -56,6 +57,61 @@ def search_book(query: str) -> dict:
         )
     }
 
+def reserve_book(book_title : str,
+                 user_name : str,
+                 confirm : Callable[[str],bool] = input
+                 ) -> dict :
+    """Add a reservation in reservations.json, but only after explicit local confirmation."""
+    from main import KNOWLEDGE_PATH,RESERVATIONS_PATH
+
+    # 1. First search whether the book is available or not
+
+    final_selected_books = {"books_selected" : []}
+    books = json.loads(KNOWLEDGE_PATH.read_text(encoding="utf-8"))
+    for book in books:
+        if book["title"] == book_title:
+            if book["available_copies"] > 0:
+                final_selected_books["books_selected"].append(book)
+    if not final_selected_books["books_selected"]:
+        return {"created" : False , "reason" : "Book not found or Book is not available"}
+
+    # 2. Get Approval
+
+    print("\n --- RESERVATION APPROVAL REQUIRED ---")
+    print("\n Book Title : ",book_title)
+    print("\n User Name : ",user_name)
+    approval = confirm("Create reservation for this book? (y/n): ").strip().lower()
+    if approval not in {"y","yes"}:
+        print("Reservation wasn't approved")
+        return {"created" : False , "reason" : "User declined approval" }
+
+    # 3 .Now it is approved, first task is to update the inventory
+    for book in final_selected_books["books_selected"]:
+        book["available_copies"] -= 1
+    # In Python, when you do final_selected_books["books_sel"].append(book)
+    # where book was in books.json, then the book inside final_selected_books
+    # and the book at books.json, point to the same object in memory.
+    # Hence updating one automatically changes the other.
+
+    KNOWLEDGE_PATH.write_text(
+        json.dumps(books, indent=4),
+        encoding="utf-8"
+    )
+
+    # 4. Load the reservations dict and store the new reservation
+    reservations = json.loads(RESERVATIONS_PATH.read_text(encoding="utf-8"))
+    next_id = max(
+        [int(reservation["id"].split("-")[-1]) for reservation in reservations] or [0]
+    ) + 1
+    reservation = {
+        "id" : f"B-{next_id}",
+        "book_title" : book_title,
+        "user_name" : user_name,
+        "created_at" : datetime.datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }
+    reservations.append(reservation)
+    RESERVATIONS_PATH.write_text(json.dumps(reservations), encoding="utf-8")
+    return {"created" : True , "reservation" : reservation}
 
 # if __name__ == "__main__":
 #     query = input("Enter search query: ")
