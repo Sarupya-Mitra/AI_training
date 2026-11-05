@@ -1,0 +1,6 @@
+[
+  {"code" :  "newuser10", "discount" :  10},
+  {"code" :  "diwali10" , "discount" :  10},
+  {"code" :  "googlepay5" , "discount" :  5},
+  {"code" :  "axiscard5" , "discount": 5}
+]
