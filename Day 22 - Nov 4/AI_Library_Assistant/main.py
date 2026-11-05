@@ -145,6 +145,9 @@ RESERVATION RULES:
 def execute_tool(name : str, args : dict) -> dict:
     if name == "search_book":
         return search_book(query=args["query"])
+    if name == "reserve_book":
+        return reserve_book(book_title=args["book_title"],
+                            user_name=args["user_name"],)
     return {"error" : f"Unknown tool: {name}"}
 
 

@@ -2,6 +2,7 @@
 import json
 import re
 from typing import Callable
+from datetime import datetime, timezone
 
 STOP_WORDS = {"the","an","a","and","with"}
 
@@ -107,7 +108,7 @@ def reserve_book(book_title : str,
         "id" : f"B-{next_id}",
         "book_title" : book_title,
         "user_name" : user_name,
-        "created_at" : datetime.datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "created_at" : datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
     reservations.append(reservation)
     RESERVATIONS_PATH.write_text(json.dumps(reservations), encoding="utf-8")
