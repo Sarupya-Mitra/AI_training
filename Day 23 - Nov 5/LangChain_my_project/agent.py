@@ -3,7 +3,8 @@ import os
 from dotenv import load_dotenv
 
 from langchain.agents import create_agent
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
+from langchain_openrouter import ChatOpenRouter
 from langchain_core.messages import AIMessage, ToolMessage
 from langgraph.checkpoint.memory import InMemorySaver
 
@@ -15,9 +16,17 @@ from guardrails import contains_pii,clean_output
 load_dotenv()
 
 # STEP 2: Create model
-model = ChatOpenAI(
-    model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
-    temperature=0
+# model = ChatOpenAI(
+#     model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+#     temperature=0
+# )
+api_key = os.getenv("KEY")
+model_name = os.getenv("MODEL")
+
+model = ChatOpenRouter(
+    model=model_name,
+    api_key=api_key,
+    temperature=0,
 )
 
 # STEP 3: Create agent
