@@ -50,7 +50,8 @@ if __name__ == "__main__":
         question = input("\nYou> ").strip()
         if question.lower() in ["exit", "quit"]:
             break
-        if question.lower() == "/new":
+        if question.lower() == "/new":  # New conversation has nothing to do with old one, so update thread_number
+            # and reset the messages count to 0.
             thread_number += 1
             previous_count = 0
             print("New Conversation start...")
@@ -60,7 +61,7 @@ if __name__ == "__main__":
         if contains_pii(question):
             print("PII detected. Please remove personal contact details")
             break
-        config = {
+        config = {  # This has the configuration settings
             "configurable" : {
                 "thread_id" : f"workshop - {thread_number}",
             }
@@ -72,10 +73,25 @@ if __name__ == "__main__":
                         {"role" : "user","content" : question}
                     ]
                 },
-                config = config
+                config = config  # Here the agent gets the thread_number, and learns the history of the chat
             )
-            messages = result["messages"]
+            messages = result["messages"] # This contains the entire message history for that thread.
+            # E.g : result["messages"] = [
+            #     HumanMessage(content="Hi"),
+            #     AIMessage(content="Hello! How can I help?"),
+            #
+            #     HumanMessage(content="What is Python?"),
+            #     AIMessage(content="Python is a programming language."),
+            #
+            #     HumanMessage(content="What is a variable?"),
+            #     AIMessage(content="A variable stores a value.")
+            # ]
+            # So we need to extract the latest interaction as shown:
             new_messages = messages[previous_count:]
+            # So according to our example, if previous_count=4, then here we got
+            # [HumanMessage(content="What is a variable?"),
+            # AIMessage(content="A variable stores a value.")]
+            # Then we need to update our count, as shown:
             previous_count = len(messages)
 
             for message in new_messages:
